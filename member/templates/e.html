@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동적 셀렉트</title>
+    <script>
+        function detailchange(obj){
+            if (obj.value == "1"){
+                document.getElementById("detail").innerHTML = `
+                <option value="1">문학</option>
+                <option value="2">비문학</option>
+                `;
+            }
+            else if (obj.value == "2"){
+                document.getElementById("detail").innerHTML = `
+                <option value="1">듣기</option>
+                <option value="2">쓰기</option>
+                `;
+            }
+            else if (obj.value == "3"){
+                document.getElementById("detail").innerHTML = `
+                <option value="1">집합</option>
+                <option value="2">행렬 등</option>
+                `;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    과목선택
+    <select id="subject" onchange="detailchange(this);">
+        <option value="1">국어</option>
+        <option value="2">영어</option>
+        <option value="3">수학</option>
+    </select>
+    상세
+    <select id="detail">
+        <option value="1">과목선택하세요.</option>
+    </select>
+</body>
+</html>

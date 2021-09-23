@@ -1,0 +1,8 @@
+{% if not err %}
+안녕하세요. {{parameter1}}님. 당신의 비밀번호는 {{parameter2}}로 해킹되셨습니다.
+<br>이름 :{{parameter3}}
+<br>가입날짜 :{{parameter4}}
+<br>성별 :{{parameter5}}
+{% else %}
+{{err}}
+{% endif %}

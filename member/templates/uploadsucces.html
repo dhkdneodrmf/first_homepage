@@ -1,0 +1,6 @@
+{% load static %}
+업로드 성공<br>
+{% if filename%}
+파일명: {{filename.name}}<br>
+<img src="{% get_static_prefix %}user/{{filename.name}}">
+{% endif %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>체크박스 확인</title>
+    <script>
+            function ajaxcheck(){
+                $.post(
+                    "/dhkdneod/checkbox2",
+                    { hobby: $("input[name=hobby]").prop('checked'), csrfmiddlewaretoken:document.getElementsByName("csrfmiddlewaretoken")[0].value },
+                    function(hello){
+                        //alert(hello);
+                        $("#my_div").html(hello)
+                    }
+                );
+            }
+    </script>
+</head>
+<body>
+    당신의 좋아하는 스포츠 종목을 모두 선택하세요.<br>
+        <form action="/dhkdneod/checkbox" method="POST">
+        {% csrf_token %}
+            <input type="checkbox" id="ho1" name="hobby" value="축구">
+            축구<br>
+            <input type="checkbox" id="ho2" name="hobby" value="농구">
+            농구<br>
+            <input type="checkbox" id="ho3" name="hobby" value="야구">
+            야구<br>
+            <input type="checkbox" id="ho4" name="hobby" value="배구">
+            배구<br>
+            <input type="checkbox" id="ho5" name="hobby" value="근대5종">
+            근대5종<br>
+            <input type="checkbox" id="ho6" name="hobby" value="양궁">
+            양궁<br>
+            <input type="checkbox" id="ho7" name="hobby" value="펜싱">
+            펜싱<br>
+            <input type="checkbox" id="ho8" name="hobby" value="마라톤">
+            마라톤<br>
+            <input type="checkbox" id="ho9" name="hobby" value="기타스포츠">
+            기타스포츠<br>
+            <button>저장</button>
+        </form>
+        <div>
+        {% if objects %}
+        당신이 선택한 종목은<br>
+        {% for obj in objects %}
+            <strong>{{obj}}</strong><br>
+        {% endfor %}
+        입니다.
+        {% endif %}
+        </div>
+        <div id="my_div"></div>
+</body>
+</html>

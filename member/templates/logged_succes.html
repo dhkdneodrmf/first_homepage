@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <title>로그인 성공 페이지</title>
+</head>
+<body>
+    당신의 아이디와 패스워드가 정확해서 로그인 되셨습니다.<br>
+    {% for member in sucess_mem%}
+    당신의 아이디 : {{member.userid}}<br>
+    당신의 이름 : {{member.username}}<br>
+    당신의 비밀번호 : {{member.password}}<br>
+    당신의 이메일 : {{member.email}}<br>
+    당신의 자기소개 : {{member.introduce}}<br>
+    당신의 성별 : {{member.get_gender_display}}<br>
+    {% endfor %}
+    <form action="http://49.50.161.64:8000/dhkdneod/withdrawal" method="POST">
+        {% csrf_token %}
+        {% for member in sucess_mem%}
+        <input type="hidden" name="exitid" value="{{member.userid}}">
+        {% endfor %}
+        <button class="btn btn-danger" type="submit">회원탈퇴</button>
+    </form>
+</body>
+</html>

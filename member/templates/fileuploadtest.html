@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input file테스트</title>
+</head>
+<body>
+    <form>
+        <input type="file" name="input_file" id="input_file">
+        <input type="text" name="input_text" id="input_text">
+        <button tpye="button" onclick="check_file();">첨부파일확인</button>
+        <button type="submit">제출</button>
+    </form>
+    <script>
+        function check_file(){
+            alert( document.getElementById("input_file").value );
+        }
+        //document.getElemnetById( "input_file").value ="하하하.txt";
+        document.getElementById("input_text").value ="하하하";
+    </script>
+
+</body>
+</html>
