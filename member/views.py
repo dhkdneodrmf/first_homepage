@@ -5,7 +5,7 @@ from .models import User
 from django.shortcuts import render
 # from .forms import UploadFileForm
 import os
-
+import torch
 # Imaginary function to handle an uploaded file.
 
 # def upload(req):
@@ -164,3 +164,34 @@ def checktest(req):
 
 # def checktest2(req):
 #    return render(req, 'j.html',{'objects':req.POST.getlist('hobby')})
+
+def trafaccident(req):
+    return render(req, 'accident.html')
+
+def toeic_ai(req):
+    if req.method == 'POST':
+        x_train = torch.FloatTensor([[int(req.POST.get('day1'))],[int(req.POST.get('day2'))],[int(req.POST.get('day3'))]])
+        y_train = torch.FloatTensor([[int(req.POST.get('score1'))],[int(req.POST.get('score2'))],[int(req.POST.get('score3'))]])
+        W = torch.zeros(1)
+        b = torch.zeros(1)
+
+        lr = 0.00025
+
+        epochs = 200000
+
+        len_x = len(x_train)
+
+        for epoch in range(epochs):
+          hypothesis = x_train * W + b
+          cost = torch.mean((hypothesis -y_train)**2)
+
+          gradient_w = torch.sum((W*x_train - y_train +b)*x_train)/ len_x
+          gradient_b = torch.sum((W*x_train - y_train +b))/len_x
+
+          W -= lr * gradient_w
+          b -= lr * gradient_b
+        if epoch % 10000 == 0:
+            print('Epoch {:4d}/{} W:{:.6f} b:{:.6f} Cost: {:.6f}'.format(epoch,epochs,W.item() ,b.item() , cost.item()))
+        return render( req, 'toeic_output.html', { 'W':W.item(), 'b':b.item() } )
+    else:
+        return render(req, 'toeic_input.html')

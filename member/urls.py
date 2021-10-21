@@ -30,6 +30,8 @@ urlpatterns = [
     path('fileupload',views.upload_file),
     path('fileupload2',views.upload_file2),
     path('checkbox',views.checktest),
+    path('trafficaccident',views.trafaccident),
+    path('toeicinput',views.toeic_ai),
 #    path('checkbox2',views.checktest2),
 ]
 

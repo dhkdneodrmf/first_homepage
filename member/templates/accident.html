@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>체크박스 확인</title>
+    </head>
+    <body>
+        <h1>2020년 월별데이터로 인공지능으로 알아보는 미래 교통사고 발생건수<h1>
+        <h4>안전한 대한민국이 되는 그날까지~</h4>
+        <img src="{% static 'accident.jpg' %}" style="display:block;margin-bottom:20px;">
+        <form action="" method="GET">
+        <label>조회할 월</label>
+        <input type="text" id="sdate" required>
+        <button>확인</button>
+        </form>
+        <script>
+        </script>
+    </body>
+</html>
