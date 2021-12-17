@@ -7,7 +7,7 @@
     <title>전송</title>
 </head>
 <body>
-    <form action="http://jyr.ideadream.co.kr:8000/dhkdneod/receive" method="POST">
+    <form action="/dhkdneod/receive" method="POST">
         {%csrf_token%}
         <input type="text" name="my_info">
         <button>전송</button>
