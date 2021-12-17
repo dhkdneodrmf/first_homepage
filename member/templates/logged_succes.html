@@ -18,7 +18,7 @@
     당신의 자기소개 : {{member.introduce}}<br>
     당신의 성별 : {{member.get_gender_display}}<br>
     {% endfor %}
-    <form action="http://49.50.161.64:8000/dhkdneod/withdrawal" method="POST">
+    <form action="/dhkdneod/withdrawal" method="POST">
         {% csrf_token %}
         {% for member in sucess_mem%}
         <input type="hidden" name="exitid" value="{{member.userid}}">
