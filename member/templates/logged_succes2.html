@@ -11,10 +11,10 @@
 <body>
     {{id}}님 환영합니다.
     <br><br>
-    <button class="btn btn-danger" onclick="javascript:location.href='http://49.50.161.64:8000/dhkdneod/logout'">로그아웃</button>
+    <button class="btn btn-danger" onclick="javascript:location.href='/dhkdneod/logout'">로그아웃</button>
     {% if re %}
     <script>
-        location.href="http://49.50.161.64:8000/dhkdneod/loginedcheck";
+        location.href="/dhkdneod/loginedcheck";
     </script>
     {% endif %}
 </body>
