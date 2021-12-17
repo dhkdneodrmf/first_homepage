@@ -18,7 +18,7 @@
                 <cite title="Source Title">dhkdneodrmf</cite>의 첫번째 홈페이지에 로그인하세요.
             </figcaption>
         </figure>
-        <form class="row g-3 my-2" action="http://49.50.161.64:8000/dhkdneod/logined" method="POST">
+        <form class="row g-3 my-2" action="/dhkdneod/logined" method="POST">
             {% csrf_token %}
             <div class="col-12">
                 <label for="inputid" class="form-label">아이디*</label>
@@ -30,14 +30,14 @@
             </div>
             <div class="col-12 text-center">
                 <button type="submit" class="btn btn-primary btn-lg mx-5">로그인</button>
-                <a href="http://49.50.161.64:8000/dhkdneod/modpasswd">비밀번호 변경</a>
+                <a href="/dhkdneod/modpasswd">비밀번호 변경</a>
             </div>
         </form>
     </div>
     {% if sucess_msg %}
     <script>
         alert("{{sucess_msg}}");
-        location.href="http://49.50.161.64:8000/dhkdneod/login";
+        location.href="/dhkdneod/login";
     </script>
     {% endif %}
 </body>
